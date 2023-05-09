@@ -1,0 +1,122 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 184px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 88px;
+    width: 1140px;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+.formLabel {
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+    color: #5b5b5b;
+}
+
+.formItem {
+    display: flex;
+    align-items: center;
+    padding: 16px 19px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #161414;
+}
+
+.formSelect {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    color: #161414;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+/* ! Убрать синий цвет рамки при выдилении */
+
+.formSelect:focus {
+    text-decoration: none;
+    border: none;
+}
+
+.location::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 21px;
+    margin-right: 19px;
+    background-image: url('./logos/location.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.activity::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    margin-right: 19px;
+    background-image: url('./logos/bicycle.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.date::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    margin-right: 19px;
+    background-image: url('./logos/calendar.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.guest::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 20px;
+    margin-right: 19px;
+    background-image: url('./logos/guest.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.formBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background: #7b61ff;
+    border-radius: 12px;
+    border: none;
+    margin-right: 8px;
+}
+
+.formBtn::before {
+    display: inline-block;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url('./logos/find.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
