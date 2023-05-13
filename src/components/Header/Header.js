@@ -3,11 +3,23 @@ import styles from './Header.module.css';
 import Container from '../Container';
 import User from './User';
 import HeaderForm from '../HeaderForm/HeaderForm';
-
+import Swal from 'sweetalert2';
 // images
 import logo from './images/logo.svg';
+import planet from './images/planet.jpeg';
 
 export default function Header() {
+  const handleBtnClick = (e) => {
+    Swal.fire({
+      title: 'Hello, tourist!',
+      text: 'Discover globe!',
+      imageUrl: planet,
+      imageWidth: 400,
+      imageHeight: 220,
+      imageAlt: 'Custom image',
+    });
+  };
+
   return (
     <header className={styles.header}>
       <Container>
@@ -59,10 +71,10 @@ export default function Header() {
         <div className={styles.headerContent}>
           <h1 className={styles.headerTitle}>Discover the most engaging places</h1>
 
-          <div className={styles.headerContent_linkContainer}>
-            <a href="#!" className={styles.headerContent_link}>
+          <div className={styles.headerContent_btnContainer}>
+            <button type="button" className={styles.headerContent_btn} onClick={handleBtnClick}>
               Discover on 3D Globe
-            </a>
+            </button>
           </div>
 
           <HeaderForm />

@@ -45,8 +45,7 @@
 /* ! Убрать синий цвет рамки при выдилении */
 
 .formSelect:focus {
-    text-decoration: none;
-    border: none;
+    outline: none;
 }
 
 .location::before {
@@ -83,6 +82,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.calendar {
+    border: 1.5px solid #000;
+    border-radius: 5px;
+    padding: 3px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding: 3px;
 }
 
 .guest::before {

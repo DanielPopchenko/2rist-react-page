@@ -1,0 +1,41 @@
+/* * hotels */
+
+.hotelsList {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotelsList_item img {
+    margin-bottom: 10px;
+}
+
+.hotelsList_item p {
+    margin-bottom: 12px;
+}
+
+.hotelLocation {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 23px;
+    color: #979797;
+}
+
+.hotelLocation::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 14.5px;
+    margin-right: 7px;
+    background-image: url('../images/location-grey.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.hotelInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

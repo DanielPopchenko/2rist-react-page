@@ -1,0 +1,65 @@
+.sectionTitle {
+    font-size: 32px;
+    line-height: 48px;
+    color: #161414;
+    font-weight: 600;
+    margin-bottom: 64px;
+}
+
+
+/* * section nav */
+
+.sectionNav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 64px;
+}
+
+.sectionBtn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    min-width: 105px;
+    height: 44px;
+    background-color: #f6f4ff;
+    border-radius: 12px;
+    border: none;
+    /* text */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5243c2;
+}
+
+.sectionBtn::after {
+    content: '';
+    display: inline-block;
+    width: 13.3px;
+    height: 12.7px;
+    background-image: url('./images/arrow-right.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 7px;
+}
+
+
+/* * destinations */
+
+.destinationsList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.destinationsList_item img {
+    margin-bottom: 8px;
+}
+
+.destinationsList_item span {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 23px;
+    color: #979797;
+}

@@ -1,59 +1,137 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './HeaderForm.module.css';
 
+import { useId } from 'react';
 import classNames from 'classnames';
+import Swal from 'sweetalert2';
 
 export default function HeaderForm() {
+  const locationSelectId = useId();
+
+  const [location, setLocation] = useState('');
+  const [activity, setActivity] = useState('');
+  const [guests, setGuests] = useState('');
+  const [date, setDate] = useState('');
+
+  const handleSelectChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    console.log(name);
+    console.log(value);
+    if (name === 'locations') {
+      setLocation(value);
+    } else if (name === 'activities') {
+      setActivity(value);
+    } else if (name === 'guests') {
+      setGuests(value);
+    } else if (name === 'date') {
+      setDate(value);
+    }
+  };
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (location === '' || guests === '' || activity === '') {
+      Swal.fire('Error', 'Please choose all the options', 'error');
+    } else {
+      Swal.fire(
+        'We have recieved your request',
+        `Location: ${location}; Prefered activity: ${activity}; Date: ${date}; Guests: ${guests}`,
+        'success',
+      );
+
+      setLocation('');
+      setGuests('');
+      setActivity('');
+      setDate('');
+    }
+  };
+
   return (
     <div className={styles.formContainer}>
-      <form action="" className={styles.form}>
+      <form action="" onSubmit={onFormSubmit} className={styles.form}>
         <div className={classNames(styles.formItem, styles.location)}>
           <div className={styles.selectGroup}>
-            <label className={styles.formLabel}>Location</label> <br />
-            <select name="locations" className={classNames(styles.formSelect)}>
+            <label className={styles.formLabel} htmlFor={locationSelectId}>
+              Location
+            </label>
+            <br />
+            <select
+              name="locations"
+              value={location}
+              onChange={handleSelectChange}
+              // id={locationSelectId}
+              className={classNames(styles.formSelect)}
+            >
               <option value="all">Explore nearby destinations</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-              <option value="4">Option 4</option>
+              <option value="Big Sur">Big Sur</option>
+              <option value="Prescott">Prescott</option>
+              <option value="Fort Mayers">Fort Mayers</option>
+              <option value="Tucson">Tucson</option>
+              <option value="St. Joseph">St. Joseph</option>
+              <option value="Madrid">Madrid</option>
             </select>
           </div>
         </div>
 
         <div className={classNames(styles.formItem, styles.activity)}>
           <div className={styles.selectGroup}>
-            <label className={styles.formLabel}>Activity</label> <br />
-            <select name="locations" className={classNames(styles.formSelect)}>
-              <option value="all">All Activities</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-              <option value="4">Option 4</option>
-            </select>
+            <label className={styles.formLabel}>
+              Activity <br />
+              <select
+                name="activities"
+                value={activity}
+                onChange={handleSelectChange}
+                className={classNames(styles.formSelect)}
+              >
+                <option value="All">All Activities</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Football">Football</option>
+                <option value="Bysicle">Bysicle</option>
+              </select>
+            </label>
+            <br />
           </div>
         </div>
 
         <div className={classNames(styles.formItem, styles.date)}>
           <div className={styles.selectGroup}>
             <label className={styles.formLabel}>When</label> <br />
-            <input type="date" class={styles.calendar} id="date" name="date" />
+            <input
+              type="date"
+              onChange={handleSelectChange}
+              class={styles.calendar}
+              value={date}
+              id="date"
+              name="date"
+            />
           </div>
         </div>
 
         <div className={classNames(styles.formItem, styles.guest)}>
           <div className={styles.selectGroup}>
-            <label className={styles.formLabel}>Guests</label> <br />
-            <select name="locations" className={classNames(styles.formSelect)}>
-              <option value="all">1 Guest</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-              <option value="4">Option 4</option>
-            </select>
+            <label className={styles.formLabel}>
+              Guests <br />
+              <select
+                name="guests"
+                value={guests}
+                onChange={handleSelectChange}
+                className={classNames(styles.formSelect)}
+              >
+                <option value="1">1 guest</option>
+                <option value="2-3">2-3 guests</option>
+                <option value="4-5">4-5 guests</option>
+                <option value="6>">6 and more guests</option>
+              </select>
+            </label>
+            <br />
           </div>
         </div>
 
-        <button type="button" class={styles.formBtn}></button>
+        <button type="submit" class={styles.formBtn}></button>
       </form>
     </div>
   );
