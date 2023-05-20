@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import styles from './HeaderForm.module.css';
 
+import DateCalendar from './DateCalendar';
+import dayjs, { Dayjs } from 'dayjs';
+
 import { useId } from 'react';
 import classNames from 'classnames';
 import Swal from 'sweetalert2';
 
 export default function HeaderForm() {
   const locationSelectId = useId();
+  const currentTime = dayjs();
 
   const [location, setLocation] = useState('');
   const [activity, setActivity] = useState('');
   const [guests, setGuests] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(currentTime);
 
   const handleSelectChange = (e) => {
     const name = e.target.name;
@@ -38,14 +42,16 @@ export default function HeaderForm() {
     } else {
       Swal.fire(
         'We have recieved your request',
-        `Location: ${location}; Prefered activity: ${activity}; Date: ${date}; Guests: ${guests}`,
+        `Location: ${location}; Prefered activity: ${activity}; Date: ${date.format(
+          'ddd, MMM D, YYYY',
+        )}; Guests: ${guests}`,
         'success',
       );
 
       setLocation('');
       setGuests('');
       setActivity('');
-      setDate('');
+      setDate(currentTime);
     }
   };
 
@@ -99,15 +105,7 @@ export default function HeaderForm() {
 
         <div className={classNames(styles.formItem, styles.date)}>
           <div className={styles.selectGroup}>
-            <label className={styles.formLabel}>When</label> <br />
-            <input
-              type="date"
-              onChange={handleSelectChange}
-              class={styles.calendar}
-              value={date}
-              id="date"
-              name="date"
-            />
+            <DateCalendar date={date} setDate={setDate} />
           </div>
         </div>
 

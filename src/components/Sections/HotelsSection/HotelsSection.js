@@ -1,8 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import Container from '../../Container';
 import Section from '../../Section';
 import SectionNavigation from '../SectionNavigation';
 import styles from './HotelsSection.module.css';
+import StarsRating from '../SatrsRating';
 
 // images
 
@@ -12,10 +13,15 @@ import hotel_3 from '../images/hotel-3.jpg';
 import hotel_4 from '../images/hotel-4.jpg';
 
 export default function HotelsSection() {
+  const [monasteroRating, setMonasteroRating] = useState(5);
+  const [grandRating, setGrandRating] = useState(3);
+  const [oberoiRating, setOberoiRating] = useState(4);
+  const [beverlyRating, setBeverlyRating] = useState(3);
+
   return (
     <Section>
       <Container>
-        <SectionNavigation />
+        <SectionNavigation title="Hotels and Restaurants" />
 
         <ul className={styles.hotelsList}>
           <li className={styles.hotelsList_item}>
@@ -23,14 +29,7 @@ export default function HotelsSection() {
             <p>Monastero Santa Rosa Hotel & Spa</p>
             <div className={styles.hotelInfo}>
               <span className={styles.hotelLocation}>Salerno, Italy</span>
-
-              {/* <div class="hotels-rating">
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-              </div> */}
+              <StarsRating rating={monasteroRating} setRating={setMonasteroRating} />
             </div>
           </li>
 
@@ -41,13 +40,7 @@ export default function HotelsSection() {
             <div className={styles.hotelInfo}>
               <span className={styles.hotelLocation}>Lake Como, Italy</span>
 
-              {/* <div class="hotels-rating">
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-              </div> */}
+              <StarsRating rating={grandRating} setRating={setGrandRating} />
             </div>
           </li>
 
@@ -58,13 +51,7 @@ export default function HotelsSection() {
             <div className={styles.hotelInfo}>
               <span className={styles.hotelLocation}>Udaipur, India</span>
 
-              {/* <div class="hotelRating">
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-              </div> */}
+              <StarsRating rating={oberoiRating} setRating={setOberoiRating} />
             </div>
           </li>
 
@@ -75,13 +62,7 @@ export default function HotelsSection() {
             <div className={styles.hotelInfo}>
               <span className={styles.hotelLocation}>Los Angeles, United States</span>
 
-              {/* <div class="hotels-rating">
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-                <span class="hotels-rating_star"></span>
-              </div> */}
+              <StarsRating rating={beverlyRating} setRating={setBeverlyRating} />
             </div>
           </li>
         </ul>

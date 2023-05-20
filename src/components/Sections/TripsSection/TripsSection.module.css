@@ -1,0 +1,80 @@
+.tripList_item {
+    display: flex;
+}
+
+.tripList_item+.tripList_item {
+    margin-left: 32px;
+}
+
+.tripList_itemContent {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+}
+
+.tripList_item h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #161414;
+    margin-bottom: 16px;
+}
+
+.tripList_item p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: #5b5b5b;
+}
+
+
+/*
+.tips-stats {
+    display: flex;
+    margin-top: 124px;
+}
+
+.tips-stats span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #878787;
+    margin-right: 24px;
+}
+
+.tips-stats .tips-stats_date::before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-image: url('../images/tips-date.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+}
+
+.tips-stats .tips-stats_user::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 14px;
+    background-image: url('../images/tips-user.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+}
+
+.tips-stats .tips-stats_comments::before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-image: url('../images/tips-comment.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+} */
