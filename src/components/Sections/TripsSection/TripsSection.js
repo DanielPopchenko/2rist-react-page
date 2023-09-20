@@ -8,6 +8,12 @@ import styles from './TripsSection.module.css';
 import travelTip1 from '../images/travelTip-1.jpg';
 import travelTip2 from '../images/travelTip-2.jpg';
 
+// const a = [
+//   [1, 2, 3],
+//   [3, 4, 5],
+//   [6, 7, 8],
+// ];
+
 export default function TripsSection() {
   return (
     <Section>
